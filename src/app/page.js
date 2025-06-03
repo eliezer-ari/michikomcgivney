@@ -115,7 +115,9 @@ export default function Home() {
                   <span>About Me</span>
                 </div>
                 <div className="button mobile-menu-button">
-                  <span>Portfolio</span>
+                  <a href="/portfolio.pdf" target="_blank" rel="noopener noreferrer">
+                    <span>Portfolio</span>
+                  </a>
                 </div>
                 <div className="button mobile-menu-button" onClick={() => handleModalOpen('press')}>
                   <span>Press</span>
@@ -142,7 +144,9 @@ export default function Home() {
                   <span>About Me</span>
                 </div>
                 <div className="button">
-                  <span>Portfolio</span>
+                  <a href="/portfolio.pdf" target="_blank" rel="noopener noreferrer">
+                    <span>Portfolio</span>
+                  </a>
                 </div>
                 <div className="button" onClick={() => handleModalOpen('press')}>
                   <span>Press</span>
