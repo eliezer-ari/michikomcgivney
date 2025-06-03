@@ -1,1 +1,7 @@
-to do list
+to do list:
+- link all links
+- make responsive
+- improve styling
+    - fix header padding, hamburger placement
+    - fix hamburger animation
+- push to a domain

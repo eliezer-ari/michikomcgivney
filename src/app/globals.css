@@ -1,3 +1,6 @@
+@import url('https://use.typekit.net/nov8hyw.css');
+
+
 :root {
   --background: #fffffff;
   --foreground: #1a101e;
@@ -6,7 +9,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --background: #ffffff;
-    --foreground: #171717;
+    --foreground: #624067;
   }
 }
 
@@ -16,10 +19,11 @@ body {
   overflow-x: hidden;
 }
 
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Helvetica, sans-serif;
+  font-family: "brother-1816", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -50,12 +54,25 @@ a {
   justify-content: flex-start;
   align-items: center;  
   gap: 5rem;
-  /* background: linear-gradient(180deg, #ffffff 0%,  #dda0dd 100%); */
-   background: linear-gradient(180deg, #ffffff 0%,  #d1d1d1 100%);
+  background: linear-gradient(180deg, #ffe2ff 0%,  #dda0dd 100%);
+   /* background: linear-gradient(180deg, #ffffff 0%,  #d1d1d1 100%); */
 
-  padding: 1rem 1rem;
+  /* padding: 1rem 1rem; */
 
 }
+
+@media (max-width: 960px) {
+  .main {
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main {
+    gap: 0rem;
+  }
+}
+
 
 
 .image {
@@ -81,23 +98,14 @@ a {
     justify-content: flex-start;
     min-height: 100vh;
     padding: 0;
-    padding: 4.5rem 4.5rem;
   }
 }
 
-@media (max-width: 768px) {
-  .main {
-    padding: 2.5rem 2.5rem;
-  }
-}
 
 @media (max-width: 1024px) {
-  .main {
-    padding: 3rem 3rem;
-  }
+
 
   .parent {
-    width: 90%;
     gap: 4rem;
   }
 
@@ -105,9 +113,6 @@ a {
     height: 35rem;
   }
 
-  h1 {
-    font-size: 3.5rem;
-  }
 
   p {
     font-size: 1.3rem;
@@ -191,8 +196,11 @@ a {
   justify-content: flex-start;
   align-items: flex-start;  
   gap: 5rem;
-  width: 80%;
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 1.55rem;
 }
+
 
 
 
@@ -237,19 +245,32 @@ a {
   justify-content: flex-start;
   align-items: flex-start;  
   gap: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: var(--foreground);
+  transform: translateY(0.2rem);
+}
+
+@media (max-width: 1250px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 960px) {
   h1 {
-    font-size: 3rem;
-    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
   }
 }
 
@@ -312,6 +333,24 @@ li span:last-child {
 
 
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -324,7 +363,14 @@ li span:last-child {
   align-items: center;
   z-index: 1000;
   animation: fadeIn 0.5s ease-in-out;
+  overflow-y: auto; /* Allow scrolling within modal */
+  opacity: 1;
   transition: opacity 0.5s ease-in-out;
+}
+
+.modal-overlay.closing {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .modal {
@@ -336,10 +382,16 @@ li span:last-child {
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.5s ease-in-out;
+  opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
 
+.modal.closing {
+  opacity: 0;
+}
+
 .close-button {
+  display: flex;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -347,6 +399,14 @@ li span:last-child {
   border: none;
   font-size: 24px;
   cursor: pointer;
+  z-index: 1001;
+}
+
+.close-button span {
+  width: 100%;
+  height: 1.8px;
+  background-color: var(--foreground);
+  transition: all 0.3s ease-in-out;
 }
 
 .modal-content {
@@ -359,82 +419,85 @@ li span:last-child {
   max-width: 800px;
   width: 90%;
   animation: fadeIn 0.5s ease-in-out;
+  overflow-y: auto; /* Allow scrolling within modal content */
+  max-height: 90vh; /* Prevent modal from being taller than viewport */
+  opacity: 1;
   transition: opacity 0.5s ease-in-out;
+}
+
+.modal-content.closing {
+  opacity: 0;
+}
+
+.modal-content h1 {
+  margin-bottom: 1rem;
+}
+
+.press-text, .bio-text {
+  font-size: 1.2rem;
 }
 
 /* Add hamburger menu styles */
 .hamburger-menu {
-  display: none; /* Hidden by default */
-  width: 30px;
-  height: 20px;
-  position: relative;
-  z-index: 1001;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 12px;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  padding: 0.5rem;
-  transition: all 0.3s ease-in-out;
+  padding: 0;
+  z-index: 101; /* Higher than navbar container */
+  margin-right: 1.55rem;
+
 }
 
 .hamburger-menu span {
-  display: block;
-  position: absolute;
-  height: 2px;
   width: 100%;
-  background: var(--foreground);
+  height: 1.8px;
+  background-color: var(--foreground);
   transition: all 0.3s ease-in-out;
-  opacity: 1;
 }
 
-.hamburger-menu span:nth-child(1) {
-  top: 0;
+/* Hamburger menu animation when open */
+.hamburger-menu.open span:nth-child(1) {
+  transform: translateY(5px);
 }
 
-.hamburger-menu span:nth-child(2) {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hamburger-menu span:nth-child(3) {
-  bottom: 0;
-}
-
-/* Hamburger menu animation */
-.mobile-menu.active + .hamburger-menu span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 50%;
-}
-
-.mobile-menu.active + .hamburger-menu span:nth-child(2) {
+.hamburger-menu.open span:nth-child(2) {
   opacity: 0;
 }
 
-.mobile-menu.active + .hamburger-menu span:nth-child(3) {
-  transform: rotate(-45deg);
-  bottom: 50%;
+.hamburger-menu.open span:nth-child(3) {
+  transform: translateY(-5px);
 }
 
-/* Mobile menu styles */
 .mobile-menu {
-  display: none;
   position: fixed;
   top: 0;
   right: 0;
   width: 100%;
   height: 100vh;
   background: var(--background);
-  z-index: 1000;
-  padding: 2rem;
+  z-index: -1; /* Increased from 50 to be higher than modal */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 74px 24px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  overflow-y: auto;
 }
 
-.mobile-menu.active {
+.mobile-menu.open {
   opacity: 1;
   visibility: visible;
 }
 
 .mobile-menu .close-button {
+  display: none; /* Hide the close button since we're using hamburger menu instead */
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
@@ -443,7 +506,7 @@ li span:last-child {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 1002;
+  z-index: 1001;
 }
 
 .mobile-menu-content {
@@ -462,11 +525,11 @@ li span:last-child {
 
 @media (max-width: 960px) {
   .mobile-menu {
-    display: block;
+    display: flex;
   }
 
   .hamburger-menu {
-    display: block;
+    display: flex;
   }
 
   .button-container-right {
@@ -474,16 +537,20 @@ li span:last-child {
   }
 }
 
+@media (min-width: 961px) {
+  .mobile-menu {
+    display: none;
+  }
+}
 
 @media (max-width: 960px) {
-  .main {
-    padding: 2.5rem 2.5rem;
-  }
+
 
   .parent {
     flex-direction: column;
-    width: 80%;
     gap: 2rem;
+    max-width: 450px;
+
   }
 
   .image {
@@ -491,11 +558,8 @@ li span:last-child {
     width: 100%;
   }
 
-  h1 {
-    font-size: 3rem;
-  }
 
-  p {
+  p, .button-spc {
     font-size: 1.2rem;
   }
 
@@ -509,26 +573,22 @@ li span:last-child {
   }
 
   .hamburger-menu {
-    display: block; /* Show hamburger menu */
+    display: flex; /* Show hamburger menu */
     cursor: pointer;
     padding: 0.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .main {
-    padding: 2rem 2rem;
-  }
+
 
   .parent {
     gap: 1.5rem;
   }
 
-  h1 {
-    font-size: 2.5rem;
-  }
 
-  p {
+
+  p, .button-spc {
     font-size: 1.1rem;
   }
 
@@ -539,24 +599,19 @@ li span:last-child {
 }
 
 @media (max-width: 425px) {
-  .main {
-    padding: 1.5rem 1.5rem;
-  }
+
 
   .parent {
     gap: 1rem;
   }
 
   .image {
-    height: 20rem;
     width: 100%;
   }
 
-  h1 {
-    font-size: 2rem;
-  }
 
-  p {
+
+  p, .button-spc {
     font-size: 1rem;
   }
 
@@ -567,6 +622,60 @@ li span:last-child {
 
   .button {
     font-size: 1.2rem;
-    padding: 0.8rem 1.2rem;
+    padding: 0.8rem 1.55rem;
   }
 }
+
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  top: 0; 
+  position: relative;
+  z-index: 100;
+  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease-in;
+}
+
+.navbar-inner {
+  position: relative;
+  height: var(--header-height, 74px);
+  width: 100%;
+  max-width: 1024px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  z-index: 101;
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+  /* padding-right: 1.55rem; */
+}
+
+/* Add these styles */
+body.lock-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
