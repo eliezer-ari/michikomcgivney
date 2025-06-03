@@ -182,8 +182,8 @@ export default function Home() {
           <div className="button-spc">
             <span>View CV</span>
           </div>
-          <div className="button-spc" onClick={() => handleModalOpen('mail')}>
-            <span>Contact</span>
+          <div className="button-spc" >
+                <a href="mailto:mem355@cornell.edu">Contact</a>
           </div>
           
           </div>
