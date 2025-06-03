@@ -14,6 +14,17 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Michiko McGivney | Marketing Specialist",
   description: "Michiko is the Head of Marketing at Delirium Entertainment. A former Division 1, four-year letter winner student-athlete at Cornell University, Michiko developed the discipline, teamwork, and resilience that fueled her career in marketing.",
+  openGraph: {
+    title: "Michiko McGivney | Marketing Specialist",
+    description: "Michiko is the Head of Marketing at Delirium Entertainment. A former Division 1, four-year letter winner student-athlete at Cornell University, Michiko developed the discipline, teamwork, and resilience that fueled her career in marketing.",
+    type: "website",
+    url: "https://michikomcgivney.com", // Update this with your actual domain when ready
+  },
+  twitter: {
+    card: "summary",
+    title: "Michiko McGivney | Marketing Specialist",
+    description: "Michiko is the Head of Marketing at Delirium Entertainment. A former Division 1, four-year letter winner student-athlete at Cornell University, Michiko developed the discipline, teamwork, and resilience that fueled her career in marketing.",
+  },
 };
 
 export default function RootLayout({ children }) {
