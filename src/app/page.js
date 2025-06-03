@@ -115,7 +115,7 @@ export default function Home() {
                   <span>About Me</span>
                 </div>
                 <div className="button mobile-menu-button">
-                  <a href="/portfolio.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/Portfolio_Michiko_McGivney.pdf" target="_blank" rel="noopener noreferrer">
                     <span>Portfolio</span>
                   </a>
                 </div>
@@ -123,14 +123,15 @@ export default function Home() {
                   <span>Press</span>
                 </div>
                 <div className="button mobile-menu-button">
-                  <span>CV</span>
+                  <a href="/Resume_Michiko_McGivney.pdf" target="_blank" rel="noopener noreferrer">
+                    <span>CV</span>
+                  </a>
                 </div>
               </div>
               <button 
                 className={`hamburger-menu ${isMobileMenuOpen ? 'open' : ''}`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle Menu"
-                style={{ display: 'flex' }}
               >
                 <span></span>
                 <span></span>
@@ -152,7 +153,9 @@ export default function Home() {
                   <span>Press</span>
                 </div>
                 <div className="button">
-                  <span>CV</span>
+                  <a href="/Resume_Michiko_McGivney.pdf" target="_blank" rel="noopener noreferrer">
+                    <span>CV</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -176,11 +179,13 @@ export default function Home() {
             <h1>
               <span>Michiko McGivney</span>
             </h1>
-            <p>Michiko is a former Division 1, four-year letter winner student-athlete at Cornell University, where she played softball and developed the discipline, teamwork, and resilience that fueled her career in marketing.</p>
+            <p>Michiko is the Head of Marketing at Delirium Entertainment. A former Division 1, four-year letter winner student-athlete at Cornell University, Michiko developed the discipline, teamwork, and resilience that fueled her career in marketing.</p>
             <p>With 8+ years of experience in brand strategy, public relations, business development, digital marketing, and partnerships, Michiko brings a mix of creativity and strategic execution to everything that she does.</p>
             <div className="button-container-spc">
           <div className="button-spc">
-            <span>View CV</span>
+            <a href="/Resume_Michiko_McGivney.pdf" target="_blank" rel="noopener noreferrer">
+              <span>View CV</span>
+            </a>
           </div>
           <div className="button-spc" >
                 <a href="mailto:mem355@cornell.edu">Contact</a>
@@ -216,7 +221,7 @@ export default function Home() {
             </button>
             <div className="modal-content">
               <h1>About Me</h1>
-              <p className="bio-text">As the Head of Marketing for Support Women DJs, I drive brand growth through strategic, scrappy, and creative marketing. A builder at heart, I craft and scale high-impact campaigns that generate growth and conversions. With a detail-oriented and efficient approach, I've secured partnerships with Armada Music, Spotify, Equinox, and Glowbar, executed successful social media strategies, and elevated SWDJ's presence. By blending storytelling with data-driven insights, I create compelling narratives that captivate, convert, and position SWDJ for long-term success.</p>
+              <p className="bio-text">I’m a former Division 1, four-year letter winner student-athlete at Cornell University, where I played softball and developed the discipline, teamwork, and resilience that fueled my career in marketing. With 8+ years of experience in brand strategy, public relations, business development, digital marketing, and partnerships, I bring a mix of creativity and strategic execution to everything that I do. I’m excited to bring this mindset to a forward-thinking team where I can help sharpen strategy, elevate creative execution, and consistently deliver high-performing, human-centered marketing.</p>
             </div>
           </div>
         </div>
@@ -230,8 +235,8 @@ export default function Home() {
             </button>
             <div className="modal-content">
               <h1>Press</h1>
-              <a href="https://daily-beat.com/support-women-djs-24-hour-femme-dj-marathon/" className="press-text">Feature 1</a>
-              <a href="https://ra.co/events/2132685" className="press-text">Feature 2</a>
+              <a href="https://daily-beat.com/support-women-djs-24-hour-femme-dj-marathon/" className="press-text">"Support Women DJs 24-Hour Femme DJ Marathon" | Daily Beat, March 2025</a>
+              <a href="https://ra.co/events/2132685" className="press-text">"RA Pick: 24 Hour Femme Loop" | Resident Advisor, March 2025</a>
             </div>
           </div>
         </div>

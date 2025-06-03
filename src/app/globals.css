@@ -1,9 +1,9 @@
 @import url('https://use.typekit.net/nov8hyw.css');
 
-
 :root {
   --background: #fffffff;
   --foreground: #1a101e;
+  --font-georgia: Georgia, "Times New Roman", Times, serif;
 }
 
 @media (prefers-color-scheme: light) {
@@ -23,7 +23,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "brother-1816", sans-serif;
+  font-family: "Georgia", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -77,6 +77,7 @@ a {
 
 .image {
   /* border-radius: 50%; */
+  /* border: 3px solid var(--foreground); */
   width: auto;
   height: 40rem;
   object-fit: cover;
@@ -252,6 +253,7 @@ a {
 h1 {
   font-size: 3.5rem;
   font-weight: bold;
+  font-family: var(--font-georgia);
   color: var(--foreground);
   transform: translateY(0.2rem);
 }
@@ -435,6 +437,12 @@ li span:last-child {
 
 .press-text, .bio-text {
   font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.press-text {
+  text-decoration: underline;
 }
 
 /* Add hamburger menu styles */
@@ -523,7 +531,7 @@ li span:last-child {
   text-align: left;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 768px) {
   .mobile-menu {
     display: flex;
   }
@@ -568,15 +576,6 @@ li span:last-child {
     gap: clamp(2.5rem, 2vw * 0.8, 5rem);
   }
 
-  .button-container-right {
-    display: none; /* Hide right button container for hamburger menu */
-  }
-
-  .hamburger-menu {
-    display: flex; /* Show hamburger menu */
-    cursor: pointer;
-    padding: 0.5rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -657,19 +656,6 @@ li span:last-child {
   z-index: 101;
 }
 
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 18px;
-  height: 12px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 101;
-  /* padding-right: 1.55rem; */
-}
 
 /* Add these styles */
 body.lock-scroll {
