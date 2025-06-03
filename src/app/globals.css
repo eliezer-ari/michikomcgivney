@@ -377,7 +377,7 @@ li span:last-child {
 
 .modal {
   position: relative;
-  padding: 20px;
+  padding: 1.55rem;
   height: 100%;
   width: 100%;
   display: flex;
@@ -395,12 +395,14 @@ li span:last-child {
 .close-button {
   display: flex;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1.55rem;
+  right: 1.55rem;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
+  color: var(--foreground);
+
   z-index: 1001;
 }
 
@@ -512,6 +514,7 @@ li span:last-child {
   background: none;
   border: none;
   font-size: 1.5rem;
+  color: var(--foreground);
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
