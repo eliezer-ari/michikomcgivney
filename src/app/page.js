@@ -10,6 +10,7 @@ export default function Home() {
   const [showPressModal, setShowPressModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalClosing, setIsModalClosing] = useState(false);
   
   const mainRef = useRef(null);
 
@@ -88,11 +89,18 @@ export default function Home() {
   };
 
   const handleModalClose = () => {
-    console.log('Closing all modals');
-    setIsModalOpen(false);
-    setShowModal(false);
-    setShowBioModal(false);
-    setShowPressModal(false);
+    console.log('Starting modal close animation');
+    setIsModalClosing(true);
+    
+    // Wait for animation to complete before removing modal
+    setTimeout(() => {
+      console.log('Removing modal from DOM');
+      setIsModalOpen(false);
+      setShowModal(false);
+      setShowBioModal(false);
+      setShowPressModal(false);
+      setIsModalClosing(false);
+    }, 500); // Match this with the CSS transition duration
   };
 
   return (
@@ -201,12 +209,12 @@ export default function Home() {
       </main>
       
       {showModal && (
-        <div className="modal-overlay">
-          <div className="modal">
+        <div className={`modal-overlay ${isModalClosing ? 'closing' : ''}`}>
+          <div className={`modal ${isModalClosing ? 'closing' : ''}`}>
             <button className="close-button" onClick={handleModalClose}>
               ✕
             </button>
-            <div className="modal-content">
+            <div className={`modal-content ${isModalClosing ? 'closing' : ''}`}>
               <p>email@example.com</p>
             </div>
           </div>
@@ -214,26 +222,26 @@ export default function Home() {
       )}
 
       {showBioModal && (
-        <div className="modal-overlay">
-          <div className="modal">
+        <div className={`modal-overlay ${isModalClosing ? 'closing' : ''}`}>
+          <div className={`modal ${isModalClosing ? 'closing' : ''}`}>
             <button className="close-button" onClick={handleModalClose}>
               ✕
             </button>
-            <div className="modal-content">
+            <div className={`modal-content ${isModalClosing ? 'closing' : ''}`}>
               <h1>About Me</h1>
-              <p className="bio-text">I’m a former Division 1, four-year letter winner student-athlete at Cornell University, where I played softball and developed the discipline, teamwork, and resilience that fueled my career in marketing. With 8+ years of experience in brand strategy, public relations, business development, digital marketing, and partnerships, I bring a mix of creativity and strategic execution to everything that I do. I’m excited to bring this mindset to a forward-thinking team where I can help sharpen strategy, elevate creative execution, and consistently deliver high-performing, human-centered marketing.</p>
+              <p className="bio-text">I'm a former Division 1, four-year letter winner student-athlete at Cornell University, where I played softball and developed the discipline, teamwork, and resilience that fueled my career in marketing. With 8+ years of experience in brand strategy, public relations, business development, digital marketing, and partnerships, I bring a mix of creativity and strategic execution to everything that I do. I'm excited to bring this mindset to a forward-thinking team where I can help sharpen strategy, elevate creative execution, and consistently deliver high-performing, human-centered marketing.</p>
             </div>
           </div>
         </div>
       )}
 
       {showPressModal && (
-        <div className="modal-overlay">
-          <div className="modal">
+        <div className={`modal-overlay ${isModalClosing ? 'closing' : ''}`}>
+          <div className={`modal ${isModalClosing ? 'closing' : ''}`}>
             <button className="close-button" onClick={handleModalClose}>
               ✕
             </button>
-            <div className="modal-content">
+            <div className={`modal-content ${isModalClosing ? 'closing' : ''}`}>
               <h1>Press</h1>
               <a href="https://daily-beat.com/support-women-djs-24-hour-femme-dj-marathon/" className="press-text">"Support Women DJs 24-Hour Femme DJ Marathon" | Daily Beat, March 2025</a>
               <a href="https://ra.co/events/2132685" className="press-text">"RA Pick: 24 Hour Femme Loop" | Resident Advisor, March 2025</a>
